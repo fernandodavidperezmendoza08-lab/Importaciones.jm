@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importaciones JM - Tienda Virtual & Admin</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Importaciones JHOSMEL - Catálogo Digital</title>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chart.js for Admin Panel Analytics -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js para analíticas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
@@ -21,19 +25,20 @@
                 extend: {
                     colors: {
                         brand: {
-                            gold: '#9E7422',
-                            goldLight: '#D4AF37',
-                            goldSoft: '#F3E5AB',
-                            cream: '#FAF7F0',
-                            bgSoft: '#F5EFE6',
-                            textPrimary: '#3C3228',
-                            textMuted: '#7D7060',
-                            whatsapp: '#25D366'
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
                         }
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
@@ -41,618 +46,463 @@
     </script>
 
     <style>
-        body {
-            background: linear-gradient(135deg, #FAF7F2 0%, #F3EAE0 50%, #EADECF 100%);
-            background-attachment: fixed;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #3C3228;
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.68);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 10px 30px rgba(158, 116, 34, 0.05);
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #f43f5e;
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.78);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -6px rgba(158, 116, 34, 0.12);
-            border-color: rgba(212, 175, 55, 0.4);
-        }
-
-        .glass-input {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(158, 116, 34, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .glass-input:focus {
-            background: rgba(255, 255, 255, 0.95);
-            border-color: #9E7422;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(158, 116, 34, 0.12);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #9E7422 0%, #B88B2B 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(158, 116, 34, 0.25);
-            transition: all 0.2s ease;
-        }
-
-        .btn-gold:hover {
-            background: linear-gradient(135deg, #85611B 0%, #9E7422 100%);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(158, 116, 34, 0.35);
-        }
-
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(250, 247, 240, 0.5);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(158, 116, 34, 0.25);
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(158, 116, 34, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
 
-    <!-- 1. SPLASH / WELCOME SCREEN -->
-    <div id="splashScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center transition-opacity duration-500 bg-[#F3EAE0]">
-        <div class="glass-panel p-8 sm:p-14 rounded-3xl max-w-md w-full flex flex-col items-center shadow-2xl relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 w-36 h-36 bg-amber-200/30 rounded-full blur-2xl"></div>
-            <div class="absolute -bottom-10 -left-10 w-36 h-36 bg-yellow-400/20 rounded-full blur-2xl"></div>
-
-            <div class="relative mb-6 flex flex-col items-center">
-                <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-gold mb-2">IMPORTACIONES</span>
-                <div class="relative my-2">
-                    <span class="font-serif text-7xl font-bold text-brand-gold tracking-tighter leading-none select-none">JM</span>
-                    <i class="fa-solid fa-sparkle absolute -top-1 -right-4 text-brand-goldLight text-lg animate-pulse"></i>
-                    <i class="fa-solid fa-star absolute top-6 -left-5 text-brand-goldSoft text-xs"></i>
-                </div>
-                <div class="grid grid-cols-2 gap-1 w-8 h-8 my-2 opacity-80">
-                    <div class="bg-brand-gold rounded-sm"></div>
-                    <div class="bg-brand-goldLight rotate-45 rounded-sm scale-75"></div>
-                    <div class="bg-brand-goldLight rotate-45 rounded-sm scale-75"></div>
-                    <div class="bg-brand-gold rounded-sm"></div>
+    <!-- SPLASH SCREEN DE CARGA -->
+    <div id="splashScreen" class="fixed inset-0 bg-slate-900 z-[100] flex flex-col items-center justify-center transition-opacity duration-700 ease-out">
+        <div class="relative flex flex-col items-center">
+            <div class="w-24 h-24 rounded-full border-4 border-brand-500/20 border-t-brand-500 animate-spin mb-6"></div>
+            <div class="absolute top-0 left-0 w-24 h-24 flex items-center justify-center">
+                <span class="text-3xl">✨</span>
+            </div>
+            <div class="text-center">
+                <span class="text-xs font-bold tracking-widest text-brand-400 uppercase">IMPORTACIONES</span>
+                <div class="text-3xl font-extrabold text-white tracking-wider flex items-center justify-center gap-1">
+                    JHOSMEL <i data-lucide="sparkles" class="w-5 h-5 text-brand-400 inline"></i>
                 </div>
             </div>
-
-            <p class="text-sm text-brand-textMuted mb-8 font-medium">Tienda de importaciones directas & productos en tendencia 📦✨</p>
-
-            <button onclick="enterStore()" class="btn-gold w-full py-3.5 px-8 rounded-2xl font-semibold text-lg flex items-center justify-center gap-2 group">
-                <span>Iniciar</span>
-                <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
-            </button>
+            <p class="text-slate-400 text-sm mt-4 animate-pulse">Cargando catálogo en vivo...</p>
         </div>
     </div>
 
+    <!-- MAIN APP WRAPPER -->
+    <div id="app" class="opacity-0 transition-opacity duration-500 flex-1 flex flex-col">
 
-    <!-- MAIN APPLICATION CONTAINER -->
-    <div id="mainApp" class="flex-1 flex flex-col hidden min-h-screen">
-
-        <!-- HEADER -->
-        <header class="sticky top-0 z-40 glass-panel border-b border-white/70 px-4 lg:px-8 py-3">
-            <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <!-- HEADER PRINCIPAL -->
+        <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                 
-                <div onclick="showPublicView()" class="cursor-pointer flex items-center gap-3 group">
-                    <div class="flex flex-col items-center leading-none">
-                        <span class="text-[9px] font-bold tracking-[0.25em] text-brand-gold uppercase">IMPORTACIONES</span>
-                        <div class="flex items-center gap-1">
-                            <span class="font-serif text-2xl font-bold text-brand-gold">JHOSMEL</span>
-                            <span class="text-red-400 text-sm">💖</span>
+                <!-- BRAND LOGO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 via-brand-500 to-rose-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform duration-300">
+                        JH
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase leading-none">IMPORTACIONES</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xl font-black text-slate-900 tracking-tight">JHOSMEL</span>
+                            <span class="text-xs text-brand-500 font-bold">💖</span>
                         </div>
                     </div>
+                </a>
+
+                <!-- BÚSQUEDA Y ACCIONES -->
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <!-- Botón de Búsqueda -->
+                    <div class="relative hidden sm:block w-64">
+                        <input type="text" id="searchInput" placeholder="Buscar productos..." class="w-full bg-slate-100/80 border border-transparent focus:border-brand-500 focus:bg-white text-slate-800 text-sm rounded-xl py-2.5 pl-10 pr-4 outline-none transition-all placeholder:text-slate-400">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                    </div>
+
+                    <!-- Botón Panel Admin -->
+                    <button id="adminToggleBtn" onclick="openAdminModal()" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors relative" title="Acceso Administrador">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Botón Carrito -->
+                    <button onclick="toggleCartModal()" class="relative p-2.5 rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-600 font-semibold flex items-center gap-2 transition-all">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span class="hidden sm:inline text-sm">Carrito</span>
+                        <span id="cartCountBadge" class="bg-brand-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                    </button>
                 </div>
-
-                <div class="flex items-center gap-2 sm:gap-3">
-                    
-                    <button id="viewToggleBtn" onclick="toggleAdminView()" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium glass-input text-brand-gold hover:bg-white transition flex items-center gap-1.5 shadow-sm">
-                        <i class="fa-solid fa-user-lock"></i>
-                        <span id="viewToggleLabel">Panel Admin</span>
-                    </button>
-
-                    <button onclick="sendDirectConsultationWhatsApp()" class="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold border border-brand-gold/30 text-brand-textPrimary hover:bg-brand-gold/10 transition flex items-center gap-2">
-                        <i class="fa-solid fa-comments text-brand-gold"></i>
-                        <span class="hidden sm:inline">Consultas</span>
-                    </button>
-
-                    <button onclick="toggleCartModal()" class="relative p-2.5 sm:px-4 sm:py-2 rounded-full bg-brand-goldSoft/50 text-brand-gold font-semibold hover:bg-brand-goldSoft transition flex items-center gap-2 border border-brand-gold/20">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="cartCountBadge" class="bg-brand-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-sm">0</span>
-                    </button>
+            </div>
+            
+            <!-- BUSCADOR MOBILE -->
+            <div class="px-4 pb-3 sm:hidden border-t border-slate-100 pt-2">
+                <div class="relative w-full">
+                    <input type="text" id="searchInputMobile" placeholder="Buscar productos..." class="w-full bg-slate-100 text-slate-800 text-sm rounded-xl py-2 pl-9 pr-4 outline-none">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
                 </div>
             </div>
         </header>
 
-
-        <!-- PUBLIC STORE VIEW -->
-        <main id="publicView" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+        <!-- CONTENIDO PRINCIPAL DE LA TIENDA -->
+        <main id="storeView" class="flex-1">
             
-            <!-- HERO BANNER -->
-            <section class="glass-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-sm">
-                <div class="grid md:grid-cols-12 gap-6 items-center">
-                    <div class="md:col-span-7 space-y-4 text-left z-10">
-                        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-textPrimary leading-tight">
+            <!-- HERO / BANNER PRINCIPAL -->
+            <section class="relative bg-gradient-to-br from-rose-50 via-slate-50 to-brand-50/40 py-12 sm:py-16 border-b border-slate-200/60 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700 mb-4">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Catálogo Actualizado
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
                             Tenemos de todo para ti y tu hogar
                         </h1>
-                        <p class="text-brand-textMuted text-sm sm:text-base max-w-xl leading-relaxed">
-                            Somos importadores directos en <b>Importaciones JHOSMEL</b>. Traemos productos en tendencia a precios increíbles. Haz clic en cualquier producto para explorar sus fotos en detalle.
+                        <p class="text-slate-600 text-base sm:text-lg mb-6 leading-relaxed">
+                            Somos importadores directos en <b class="text-brand-600">Importaciones JHOSMEL</b>. Traemos productos en tendencia a precios increíbles. Haz clic en cualquier producto para explorar sus fotos en detalle.
                         </p>
-                        
-                        <div class="flex flex-wrap items-center gap-3 pt-2">
-                            <a href="#catalogSection" class="btn-gold px-5 py-2.5 rounded-xl font-medium text-sm inline-flex items-center gap-2 shadow-sm">
+                        <div class="flex flex-wrap gap-3">
+                            <a href="#catalogSection" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-brand-500/30 flex items-center gap-2 transition-all hover:scale-105">
                                 <span>Ver catálogo</span>
-                                <i class="fa-solid fa-arrow-down text-xs"></i>
+                                <i data-lucide="arrow-down" class="w-4 h-4"></i>
                             </a>
-                            <button onclick="openWelcomeWhatsAppChat()" class="px-5 py-2.5 rounded-xl font-medium text-sm glass-input text-brand-textPrimary hover:bg-white transition inline-flex items-center gap-2">
-                                <i class="fa-brands fa-whatsapp text-emerald-600 text-lg"></i>
-                                <span>Escríbenos por WhatsApp</span>
+                            <button onclick="openWhatsAppGeneral()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center gap-2 transition-all">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>Consultar pedido</span>
                             </button>
                         </div>
-
-                        <div class="flex flex-wrap items-center gap-4 pt-4 text-xs font-semibold text-brand-gold">
-                            <div class="flex items-center gap-1.5 bg-white/60 px-3 py-1.5 rounded-full border border-white">
-                                <span class="w-5 h-5 rounded-full bg-brand-gold text-white flex items-center justify-center text-[10px]">1</span>
-                                <span>Elige tus productos</span>
-                            </div>
-                            <div class="flex items-center gap-1.5 bg-white/60 px-3 py-1.5 rounded-full border border-white">
-                                <span class="w-5 h-5 rounded-full bg-brand-gold text-white flex items-center justify-center text-[10px]">2</span>
-                                <span>Agrégalos al carrito</span>
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="md:col-span-5 relative flex justify-center items-center h-48 md:h-64">
-                        <div class="absolute w-32 h-32 rounded-2xl bg-gradient-to-tr from-amber-100/90 to-amber-200/60 backdrop-blur-md p-3 shadow-md -rotate-12 border border-white/80 flex flex-col justify-between -translate-x-12 -translate-y-4">
-                            <span class="text-3xl">🦄</span>
-                            <span class="bg-amber-300/80 text-amber-950 text-[10px] font-bold px-2 py-0.5 rounded-md self-start">S/ 40.00</span>
-                        </div>
-                        <div class="absolute w-32 h-32 rounded-2xl bg-gradient-to-tr from-stone-100/90 to-amber-100/60 backdrop-blur-md p-3 shadow-md rotate-12 border border-white/80 flex flex-col justify-between translate-x-12 translate-y-4">
-                            <span class="text-3xl">🍱</span>
-                            <span class="bg-amber-300/80 text-amber-950 text-[10px] font-bold px-2 py-0.5 rounded-md self-start">S/ 15.00</span>
-                        </div>
-                        <div class="z-10 w-36 h-36 rounded-2xl glass-card p-4 shadow-xl border border-white flex flex-col justify-between items-center text-center">
-                            <span class="text-5xl my-auto">🔊</span>
-                            <span class="bg-brand-gold text-white text-xs font-bold px-2.5 py-1 rounded-md">S/ 55.00</span>
+                    <div class="hidden md:flex justify-end relative">
+                        <div class="w-80 h-80 rounded-3xl bg-gradient-to-tr from-brand-400 to-rose-300 rotate-6 absolute inset-0 blur-2xl opacity-40"></div>
+                        <div class="relative glass-card p-6 rounded-3xl shadow-xl max-w-sm border border-white/60 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
+                                    <i data-lucide="truck" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Envíos a todo el Perú</h4>
+                                    <p class="text-xs text-slate-500">Coordinación rápida por WhatsApp</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Garantía Directa</h4>
+                                    <p class="text-xs text-slate-500">Productos seleccionados de alta calidad</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CATALOG SECTION -->
-            <section id="catalogSection" class="space-y-6">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="relative w-full md:w-80">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-textMuted text-sm"></i>
-                        <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar productos..." class="w-full pl-10 pr-4 py-2.5 rounded-2xl glass-input text-sm text-brand-textPrimary placeholder:text-brand-textMuted/70">
+            <!-- SECCIÓN DEL CATÁLOGO -->
+            <section id="catalogSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                
+                <!-- CATEGORÍAS -->
+                <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="layout-grid" class="w-5 h-5 text-brand-600"></i>
+                        <h2 class="text-xl font-extrabold text-slate-900">Catálogo de Productos</h2>
                     </div>
-
-                    <div id="categoryPills" class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
-                        <!-- Dynamic Categories -->
+                    <div id="categoryFilters" class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar max-w-full">
+                        <!-- Filtros inyectados dinámicamente -->
                     </div>
                 </div>
 
-                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Dynamic Product Cards -->
+                <!-- GRID DE PRODUCTOS -->
+                <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <!-- Productos inyectados por JS -->
+                </div>
+
+                <!-- MENSAJE SIN RESULTADOS -->
+                <div id="noResults" class="hidden py-16 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
+                        <i data-lucide="search-x" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1">No encontramos lo que buscas</h3>
+                    <p class="text-slate-500 text-sm">Intenta buscar con otras palabras o cambiar de categoría.</p>
                 </div>
             </section>
         </main>
 
-
-        <!-- ADMIN LOGIN MODAL -->
-        <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-            <div class="glass-panel bg-white/95 rounded-3xl max-w-sm w-full p-6 space-y-5 shadow-2xl border border-white relative">
-                <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-
-                <div class="text-center space-y-1">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-brand-gold flex items-center justify-center mx-auto text-xl shadow-sm">
-                        <i class="fa-solid fa-user-gear"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-brand-textPrimary">Acceso Administrador</h3>
-                    <p class="text-xs text-brand-textMuted">Importaciones JM Admin</p>
-                </div>
-
-                <form onsubmit="handleAdminLogin(event)" class="space-y-4" autocomplete="off">
-                    <div>
-                        <label class="block text-xs font-semibold text-brand-textMuted mb-1">Usuario</label>
-                        <input type="text" id="adminUser" required value="" placeholder="" autocomplete="off" class="w-full px-3.5 py-2.5 rounded-xl glass-input text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-brand-textMuted mb-1">Contraseña</label>
-                        <input type="password" id="adminPass" required value="" placeholder="" autocomplete="new-password" class="w-full px-3.5 py-2.5 rounded-xl glass-input text-sm">
-                    </div>
-
-                    <div id="loginError" class="text-xs text-red-500 font-medium hidden text-center bg-red-50 p-2 rounded-lg">
-                        Usuario o contraseña incorrectos.
-                    </div>
-
-                    <button type="submit" class="btn-gold w-full py-2.5 rounded-xl font-semibold text-sm">
-                        Ingresar al Panel
-                    </button>
-                </form>
-            </div>
-        </div>
-
-
-        <!-- ADMIN PANEL VIEW -->
-        <main id="adminView" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 hidden">
-            
-            <div class="flex items-center justify-between border-b border-brand-gold/20 pb-4">
-                <div>
-                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-textPrimary">Panel Administrativo</h2>
-                    <p class="text-sm text-brand-textMuted">Gestión de productos (hasta 4 imágenes por producto) e inventario.</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="logoutAdmin()" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 transition flex items-center gap-1">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <span>Cerrar Sesión</span>
-                    </button>
-                    <button onclick="showPublicView()" class="px-4 py-2 rounded-xl glass-input text-xs sm:text-sm font-semibold text-brand-gold hover:bg-white transition flex items-center gap-2">
-                        <i class="fa-solid fa-store"></i>
-                        <span>Ver Tienda</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- ARRIBA: PRODUCT MANAGEMENT & FORM SECTION -->
-            <div class="grid lg:grid-cols-12 gap-8">
+        <!-- VISTA PANEL DE ADMINISTRACIÓN -->
+        <main id="adminView" class="hidden flex-1 bg-slate-100 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Add / Edit Product Form (Includes 4 Image Upload Slots) -->
-                <div class="lg:col-span-5">
-                    <div class="glass-panel rounded-3xl p-6 sticky top-24 space-y-4">
-                        <h3 id="adminFormTitle" class="font-serif text-xl font-bold text-brand-textPrimary flex items-center gap-2">
-                            <i class="fa-solid fa-plus-circle text-brand-gold"></i>
+                <!-- TOP ADMIN BAR -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 font-bold text-xs px-2.5 py-1 rounded-md">Modo Admin</span>
+                            <h1 class="text-2xl font-black text-slate-900">Panel Administrativo</h1>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">Gestión de productos (hasta 4 imágenes por producto) e inventario.</p>
+                    </div>
+                    <button onclick="closeAdminView()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 transition-all self-start sm:self-auto">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la Tienda
+                    </button>
+                </div>
+
+                <!-- FORMULARIO & LISTA -->
+                <div class="grid lg:grid-cols-3 gap-8">
+                    
+                    <!-- FORMULARIO DE AGREGAR PRODUCTO -->
+                    <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 h-fit">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-brand-600"></i>
                             <span>Agregar Nuevo Producto</span>
                         </h3>
 
-                        <form id="productForm" onsubmit="handleProductSubmit(event)" class="space-y-4">
-                            <input type="hidden" id="editProductId" value="">
-
+                        <form id="addProductForm" onsubmit="handleProductSubmit(event)" class="space-y-4">
                             <div>
-                                <label class="block text-xs font-semibold text-brand-textMuted mb-1">Nombre del Producto</label>
-                                <input type="text" id="prodName" required placeholder="Ej: Foco cámara HD 360°" class="w-full px-3.5 py-2 rounded-xl glass-input text-sm">
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre del producto *</label>
+                                <input type="text" id="pTitle" required placeholder="Ej. Lámpara de escritorio LED" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm outline-none focus:border-brand-500">
                             </div>
 
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
-                                    <label class="block text-xs font-semibold text-brand-textMuted mb-1">Precio (S/)</label>
-                                    <input type="number" step="0.5" id="prodPrice" required placeholder="43.00" class="w-full px-3.5 py-2 rounded-xl glass-input text-sm">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Precio (S/) *</label>
+                                    <input type="number" step="0.01" id="pPrice" required placeholder="0.00" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm outline-none focus:border-brand-500">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-semibold text-brand-textMuted mb-1">Categoría</label>
-                                    <select id="prodCategory" required class="w-full px-3.5 py-2 rounded-xl glass-input text-sm bg-white/70">
-                                        <option value="Hogar">Hogar</option>
-                                        <option value="Cocina">Cocina</option>
-                                        <option value="Niños">Niños</option>
-                                        <option value="Belleza y salud">Belleza y salud</option>
-                                        <option value="Mascotas">Mascotas</option>
-                                        <option value="Tecnología">Tecnología</option>
-                                        <option value="Arte y oficina">Arte y oficina</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- UP TO 4 IMAGES UPLOAD SECTION -->
-                            <div>
-                                <label class="block text-xs font-semibold text-brand-textMuted mb-1">Fotos del Producto (Hasta 4 imágenes)</label>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <!-- Image Slot 1 -->
-                                    <div class="space-y-1">
-                                        <span class="text-[10px] text-brand-textMuted font-bold">Foto 1 (Principal)</span>
-                                        <input type="file" id="prodImageFile0" accept="image/*" onchange="previewImageFile(event, 0)" class="block w-full text-[10px] text-brand-textMuted file:mr-1 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:bg-brand-goldSoft/70 file:text-brand-gold">
-                                        <input type="hidden" id="prodImageBase64_0" value="">
-                                        <div id="imgPreviewBox_0" class="h-20 rounded-xl border border-dashed border-amber-300 bg-amber-50/50 flex items-center justify-center overflow-hidden relative hidden">
-                                            <img id="previewImg_0" src="" class="w-full h-full object-cover">
-                                            <button type="button" onclick="clearImagePreview(0)" class="absolute top-1 right-1 bg-black/60 text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image Slot 2 -->
-                                    <div class="space-y-1">
-                                        <span class="text-[10px] text-brand-textMuted font-bold">Foto 2</span>
-                                        <input type="file" id="prodImageFile1" accept="image/*" onchange="previewImageFile(event, 1)" class="block w-full text-[10px] text-brand-textMuted file:mr-1 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:bg-brand-goldSoft/70 file:text-brand-gold">
-                                        <input type="hidden" id="prodImageBase64_1" value="">
-                                        <div id="imgPreviewBox_1" class="h-20 rounded-xl border border-dashed border-amber-300 bg-amber-50/50 flex items-center justify-center overflow-hidden relative hidden">
-                                            <img id="previewImg_1" src="" class="w-full h-full object-cover">
-                                            <button type="button" onclick="clearImagePreview(1)" class="absolute top-1 right-1 bg-black/60 text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image Slot 3 -->
-                                    <div class="space-y-1">
-                                        <span class="text-[10px] text-brand-textMuted font-bold">Foto 3</span>
-                                        <input type="file" id="prodImageFile2" accept="image/*" onchange="previewImageFile(event, 2)" class="block w-full text-[10px] text-brand-textMuted file:mr-1 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:bg-brand-goldSoft/70 file:text-brand-gold">
-                                        <input type="hidden" id="prodImageBase64_2" value="">
-                                        <div id="imgPreviewBox_2" class="h-20 rounded-xl border border-dashed border-amber-300 bg-amber-50/50 flex items-center justify-center overflow-hidden relative hidden">
-                                            <img id="previewImg_2" src="" class="w-full h-full object-cover">
-                                            <button type="button" onclick="clearImagePreview(2)" class="absolute top-1 right-1 bg-black/60 text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image Slot 4 -->
-                                    <div class="space-y-1">
-                                        <span class="text-[10px] text-brand-textMuted font-bold">Foto 4</span>
-                                        <input type="file" id="prodImageFile3" accept="image/*" onchange="previewImageFile(event, 3)" class="block w-full text-[10px] text-brand-textMuted file:mr-1 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:bg-brand-goldSoft/70 file:text-brand-gold">
-                                        <input type="hidden" id="prodImageBase64_3" value="">
-                                        <div id="imgPreviewBox_3" class="h-20 rounded-xl border border-dashed border-amber-300 bg-amber-50/50 flex items-center justify-center overflow-hidden relative hidden">
-                                            <img id="previewImg_3" src="" class="w-full h-full object-cover">
-                                            <button type="button" onclick="clearImagePreview(3)" class="absolute top-1 right-1 bg-black/60 text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Categoría *</label>
+                                    <input type="text" id="pCategory" required placeholder="Ej. Hogar" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm outline-none focus:border-brand-500">
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-semibold text-brand-textMuted mb-1">Emoji o Icono alternativo</label>
-                                <input type="text" id="prodEmoji" placeholder="" class="w-full px-3.5 py-2 rounded-xl glass-input text-sm">
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Descripción</label>
+                                <textarea id="pDesc" rows="3" placeholder="Detalles, material, colores..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-sm outline-none focus:border-brand-500"></textarea>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-semibold text-brand-textMuted mb-1">Descripción Breve</label>
-                                <textarea id="prodDesc" rows="2" required placeholder="Descripción breve..." class="w-full px-3.5 py-2 rounded-xl glass-input text-sm"></textarea>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Imágenes del producto (Máx 4)</label>
+                                <input type="file" id="pImagesInput" accept="image/*" multiple onchange="previewImages(event)" class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100 cursor-pointer">
+                                <p class="text-[11px] text-slate-400 mt-1">Sube hasta 4 fotos en formato JPG o PNG.</p>
+                                
+                                <div id="imagePreviewsContainer" class="grid grid-cols-4 gap-2 mt-3">
+                                    <!-- Previsualizaciones de fotos -->
+                                </div>
                             </div>
 
-                            <div class="flex items-center gap-2 pt-2">
-                                <button type="submit" class="btn-gold flex-1 py-2.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2">
-                                    <i class="fa-solid fa-floppy-disk"></i>
-                                    <span id="formSubmitBtnText">Guardar Producto</span>
-                                </button>
-                                <button type="button" onclick="resetAdminForm()" class="px-3 py-2.5 rounded-xl glass-input text-xs font-semibold text-brand-textMuted hover:bg-white">
-                                    Cancelar
-                                </button>
-                            </div>
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                                <i data-lucide="save" class="w-4 h-4"></i> Guardar Producto
+                            </button>
                         </form>
                     </div>
-                </div>
 
-                <!-- Products Inventory Table -->
-                <div class="lg:col-span-7 space-y-4">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-serif text-lg font-bold text-brand-textPrimary">Inventario Existente</h3>
-                        <span id="adminProdCount" class="text-xs bg-white/80 px-3 py-1 rounded-full text-brand-gold font-bold">0 productos</span>
+                    <!-- TABLA/LISTA DE PRODUCTOS -->
+                    <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-slate-900">Inventario Existente</h3>
+                            <span id="adminTotalCount" class="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full">0 productos</span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-slate-600">
+                                <thead class="bg-slate-50 text-slate-700 uppercase text-[11px] font-bold border-b border-slate-200">
+                                    <tr>
+                                        <th class="p-3">Imagen</th>
+                                        <th class="p-3">Producto</th>
+                                        <th class="p-3">Categoría</th>
+                                        <th class="p-3">Precio</th>
+                                        <th class="p-3 text-right">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminProductsTable" class="divide-y divide-slate-100">
+                                    <!-- Filas inyectadas por JS -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
-                    <div id="adminProductList" class="space-y-3 max-h-[650px] overflow-y-auto pr-1">
-                        <!-- JS Dynamic Product List -->
+                </div>
+
+                <!-- ANALÍTICA Y DASHBOARD -->
+                <div class="mt-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-brand-600"></i>
+                        <span>Analítica y Métricas de Demanda</span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-rose-50 border border-rose-100 p-4 rounded-xl flex items-center gap-4">
+                            <div class="w-12 h-12 bg-rose-500 text-white rounded-xl flex items-center justify-center">
+                                <i data-lucide="package" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-rose-600 font-bold uppercase">Total Productos</p>
+                                <p id="metricTotalProducts" class="text-2xl font-black text-slate-900">0</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-500 text-white rounded-xl flex items-center justify-center">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-emerald-600 font-bold uppercase">Producto Más Solicitado</p>
+                                <p id="metricTopProduct" class="text-sm font-bold text-slate-900 truncate max-w-[180px]">Zapatera de madera</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-100 p-4 rounded-xl flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-500 text-white rounded-xl flex items-center justify-center">
+                                <i data-lucide="dollar-sign" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-amber-600 font-bold uppercase">Demanda Estimada</p>
+                                <p id="metricEstimatedSales" class="text-2xl font-black text-slate-900">S/ 1,420.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 p-4 rounded-xl">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase mb-4 flex items-center gap-2">
+                                <i data-lucide="flame" class="w-4 h-4 text-brand-500"></i>
+                                <span>Productos Más Pedidos / Tendencia</span>
+                            </h4>
+                            <div class="h-64">
+                                <canvas id="chartPopularity"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase mb-4 flex items-center gap-2">
+                                <i data-lucide="pie-chart" class="w-4 h-4 text-brand-500"></i>
+                                <span>Distribución por Categorías</span>
+                            </h4>
+                            <div class="h-64">
+                                <canvas id="chartCategories"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
-            <!-- ABAJO: ANALYTICS DASHBOARD & CHARTS SECTION -->
-            <div class="border-t border-brand-gold/20 pt-8 space-y-6">
-                <h3 class="font-serif text-2xl font-bold text-brand-textPrimary flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line text-brand-gold"></i>
-                    <span>Analítica y Métricas de Demanda</span>
-                </h3>
-
-                <!-- Stats Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="glass-panel p-5 rounded-2xl flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-brand-gold flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-box font-bold"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-brand-textMuted font-medium">Total Productos</p>
-                            <p id="statTotalProducts" class="text-2xl font-bold font-serif text-brand-textPrimary">0</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-fire"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-brand-textMuted font-medium">Producto Más Solicitado</p>
-                            <p id="statTopProduct" class="text-base font-bold font-serif text-brand-textPrimary">Zapatera de madera</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-brand-textMuted font-medium">Demanda Estimada</p>
-                            <p id="statEstimatedSales" class="text-2xl font-bold font-serif text-brand-textPrimary">S/ 1,420.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Charts -->
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <div class="glass-panel p-6 rounded-3xl space-y-3">
-                        <h4 class="font-serif font-bold text-lg text-brand-textPrimary flex items-center gap-2">
-                            <i class="fa-solid fa-chart-column text-brand-gold"></i>
-                            <span>Productos Más Pedidos / Tendencia</span>
-                        </h4>
-                        <div class="h-64 relative">
-                            <canvas id="topProductsChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-6 rounded-3xl space-y-3">
-                        <h4 class="font-serif font-bold text-lg text-brand-textPrimary flex items-center gap-2">
-                            <i class="fa-solid fa-chart-pie text-brand-gold"></i>
-                            <span>Distribución por Categorías</span>
-                        </h4>
-                        <div class="h-64 relative flex justify-center">
-                            <canvas id="categoryPieChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </main>
 
-
-        <!-- PRODUCT DETAIL MODAL WITH IMAGE CAROUSEL -->
-        <div id="productDetailModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 hidden">
-            <div class="glass-panel bg-white/95 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative border border-white max-h-[90vh] overflow-y-auto">
-                <button onclick="closeProductDetailModal()" class="absolute top-4 right-4 bg-stone-100 hover:bg-stone-200 text-stone-600 w-9 h-9 rounded-full flex items-center justify-center transition z-10">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-
-                <div class="grid sm:grid-cols-2 gap-6 items-center">
+        <!-- MODAL DETALLE DE PRODUCTO CON GALERÍA (HASTA 4 FOTOS) -->
+        <div id="productDetailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+            <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl transition-all transform scale-100">
+                <div class="relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto custom-scrollbar">
                     
-                    <!-- Carousel Container -->
-                    <div class="space-y-3">
-                        <div class="relative w-full h-64 sm:h-72 bg-gradient-to-br from-amber-100/60 to-amber-200/40 rounded-2xl overflow-hidden flex items-center justify-center border border-amber-200 shadow-inner group">
-                            
-                            <!-- Current Displayed Image / Emoji -->
-                            <div id="carouselMainDisplay" class="w-full h-full flex items-center justify-center text-7xl select-none">
-                                <!-- Dynamic Image/Emoji -->
+                    <button onclick="closeProductDetailModal()" class="absolute top-4 right-4 w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center z-10 transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        
+                        <!-- VISOR DE GALERÍA -->
+                        <div>
+                            <div class="aspect-square rounded-2xl bg-slate-100 overflow-hidden mb-3 border border-slate-200">
+                                <img id="detailMainImage" src="" alt="Producto" class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Previous / Next Arrows -->
-                            <button id="carouselPrevBtn" onclick="navigateCarousel(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition">
-                                <i class="fa-solid fa-chevron-left text-xs"></i>
-                            </button>
-                            <button id="carouselNextBtn" onclick="navigateCarousel(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition">
-                                <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </button>
+                            <!-- THUMBNAILS (HASTA 4 FOTOS) -->
+                            <div id="detailThumbnails" class="grid grid-cols-4 gap-2">
+                                <!-- JS generará las miniaturas aquí -->
+                            </div>
                         </div>
 
-                        <!-- Carousel Thumbnails -->
-                        <div id="carouselThumbnails" class="flex items-center justify-center gap-2 overflow-x-auto py-1">
-                            <!-- Dynamic Thumbnails -->
+                        <!-- INFORMACIÓN Y DETALLES -->
+                        <div class="flex flex-col justify-between">
+                            <div>
+                                <span id="detailCategory" class="inline-block px-3 py-1 bg-brand-50 text-brand-700 font-bold text-xs rounded-full uppercase tracking-wider mb-2">Categoría</span>
+                                <h3 id="detailTitle" class="text-2xl font-black text-slate-900 mb-2">Nombre del producto</h3>
+                                <p id="detailPrice" class="text-3xl font-extrabold text-brand-600 mb-4">S/ 0.00</p>
+                                
+                                <p id="detailDesc" class="text-slate-600 text-sm leading-relaxed mb-6">
+                                    Descripción completa del producto...
+                                </p>
+                            </div>
+
+                            <div class="space-y-3 pt-4 border-t border-slate-100">
+                                <button id="detailAddToCartBtn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                                    <span>Agregar al Carrito</span>
+                                </button>
+
+                                <button id="detailBuyWspBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </button>
+                            </div>
                         </div>
+
                     </div>
-
-                    <!-- Product Info & Direct Actions -->
-                    <div class="space-y-4">
-                        <div>
-                            <span id="detailCat" class="text-xs font-bold text-brand-gold uppercase tracking-wider">Categoría</span>
-                            <h3 id="detailTitle" class="font-serif text-2xl font-bold text-brand-textPrimary mt-1">Nombre del producto</h3>
-                            <p id="detailPrice" class="text-2xl font-bold text-brand-gold font-serif mt-2">S/ 0.00</p>
-                        </div>
-
-                        <p id="detailDesc" class="text-sm text-brand-textMuted leading-relaxed">Descripción completa del producto...</p>
-
-                        <div class="space-y-2 pt-2 border-t border-brand-gold/15">
-                            <button id="detailAddToCartBtn" class="btn-gold w-full py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 shadow-sm">
-                                <i class="fa-solid fa-cart-plus"></i>
-                                <span>Agregar al carrito</span>
-                            </button>
-
-                            <button id="detailOrderWhatsAppBtn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 text-sm transition shadow-sm">
-                                <i class="fa-brands fa-whatsapp text-lg"></i>
-                                <span>Consultar este producto en WhatsApp</span>
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
 
-
-        <!-- FLOATING BOTTOM BAR (CART SUMMARY) -->
-        <div id="floatingCartBar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 w-[92%] max-w-md hidden transition-all duration-300">
-            <button onclick="toggleCartModal()" class="w-full glass-panel border border-brand-gold/30 bg-gradient-to-r from-amber-100/90 to-amber-200/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center justify-between hover:scale-[1.02] transition-transform">
-                <div class="flex items-center gap-3">
-                    <div class="bg-brand-gold text-white p-2.5 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs font-medium text-brand-textMuted">Tu pedido</p>
-                        <p id="floatingCartSummary" class="text-sm font-bold text-brand-textPrimary">Ver mi pedido (0 productos)</p>
-                    </div>
+        <!-- MODAL CLAVE ADMIN -->
+        <div id="adminAuthModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+            <div class="bg-white rounded-3xl max-w-xs w-full p-6 text-center shadow-2xl">
+                <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
                 </div>
-                <span id="floatingCartTotal" class="font-serif text-lg font-bold text-brand-gold">S/ 0.00</span>
-            </button>
+                <h3 class="text-lg font-bold text-slate-900">Acceso Administrador</h3>
+                <p class="text-xs text-slate-500 mb-4">Importaciones JHOSMEL Admin</p>
+                
+                <input type="password" id="adminPasswordInput" placeholder="Contraseña de acceso" class="w-full bg-slate-100 border border-slate-200 text-center text-sm rounded-xl py-2.5 mb-3 outline-none focus:border-brand-500">
+                
+                <div class="flex gap-2">
+                    <button onclick="closeAdminAuthModal()" class="flex-1 bg-slate-200 text-slate-700 text-xs font-bold py-2.5 rounded-xl">Cancelar</button>
+                    <button onclick="verifyAdminPassword()" class="flex-1 bg-brand-600 text-white text-xs font-bold py-2.5 rounded-xl">Entrar</button>
+                </div>
+            </div>
         </div>
 
-        <!-- FLOATING WHATSAPP BUTTON (Opens Welcome Message) -->
-        <a href="#" onclick="openWelcomeWhatsAppChat(); return false;" class="fixed bottom-6 right-6 z-30 bg-brand-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center w-14 h-14 group" title="Chat de Bienvenida WhatsApp">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-            <span class="absolute right-16 bg-white text-brand-textPrimary text-xs font-semibold px-3 py-1.5 rounded-xl shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-stone-200 pointer-events-none">
+        <!-- BOTÓN FLOTANTE WHATSAPP -->
+        <a id="wspFloatBtn" href="https://wa.me/51977333415?text=Hola%20Importaciones%20JHOSMEL,%20quisiera%20más%20información%20sobre%20sus%20productos" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 text-white p-4 rounded-full shadow-2xl hover:bg-emerald-600 hover:scale-110 transition-all z-40 flex items-center justify-center gap-2 animate-pulse-subtle" title="Chat de Bienvenida WhatsApp">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="hidden md:inline font-bold text-sm pr-1">
                 Escríbenos por WhatsApp
             </span>
         </a>
 
-
-        <!-- CART MODAL ("Tu pedido") -->
-        <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/30 backdrop-blur-sm flex justify-end transition-opacity">
-            <div class="w-full max-w-md bg-stone-900/90 text-white h-full p-6 flex flex-col justify-between overflow-y-auto backdrop-blur-md shadow-2xl border-l border-white/10">
+        <!-- MODAL DE CARRITO -->
+        <div id="cartModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end hidden">
+            <div class="bg-white w-full max-w-md h-full flex flex-col justify-between shadow-2xl transition-transform">
                 
-                <div>
-                    <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                        <h3 class="font-serif text-2xl italic text-amber-200">Tu pedido</h3>
-                        <button onclick="toggleCartModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-stone-300 hover:bg-white/20 transition">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
+                <!-- HEADER CARRITO -->
+                <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-600"></i>
+                        <h3 class="text-lg font-bold text-slate-900">Tu pedido</h3>
                     </div>
-
-                    <div id="cartItemsContainer" class="space-y-4 max-h-[40vh] overflow-y-auto pr-1">
-                        <!-- JS dynamic cart items -->
-                    </div>
+                    <button onclick="toggleCartModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
                 </div>
 
-                <div class="space-y-4 pt-4 border-t border-white/10 mt-auto">
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs text-stone-400 mb-1">Tu nombre</label>
-                            <input type="text" id="clientName" placeholder="Opcional" class="w-full bg-stone-800/80 border border-stone-700 rounded-xl px-3 py-2 text-sm text-stone-200 focus:outline-none focus:border-amber-400">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-stone-400 mb-1">Distrito o dirección</label>
-                            <input type="text" id="clientAddress" placeholder="Opcional" class="w-full bg-stone-800/80 border border-stone-700 rounded-xl px-3 py-2 text-sm text-stone-200 focus:outline-none focus:border-amber-400">
-                        </div>
+                <!-- ITEMS EN EL CARRITO -->
+                <div id="cartItemsContainer" class="p-6 flex-1 overflow-y-auto custom-scrollbar space-y-4">
+                    <!-- JS inyectará items aquí -->
+                </div>
+
+                <!-- FOOTER CARRITO -->
+                <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+                    <div class="flex justify-between items-center text-slate-800 font-bold">
+                        <span>Total</span>
+                        <span id="cartTotalPrice" class="text-xl text-brand-600">S/ 0.00</span>
                     </div>
 
-                    <div>
-                        <label class="block text-xs text-stone-400 mb-1">Nota</label>
-                        <textarea id="clientNotes" rows="2" placeholder="Opcional: color, horario de entrega..." class="w-full bg-stone-800/80 border border-stone-700 rounded-xl px-3 py-2 text-sm text-stone-200 focus:outline-none focus:border-amber-400"></textarea>
-                    </div>
-
-                    <div class="flex items-center justify-between py-2">
-                        <span class="text-stone-300 text-sm">Total</span>
-                        <span id="cartTotalDisplay" class="text-2xl font-bold font-serif text-white">S/ 0.00</span>
-                    </div>
-
-                    <button onclick="sendOrderWhatsApp()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-stone-950 font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition shadow-lg text-base">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Enviar pedido por WhatsApp</span>
+                    <button onclick="sendCartToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Enviar Pedido a WhatsApp</span>
                     </button>
 
-                    <p class="text-[11px] text-center text-stone-400">
+                    <p class="text-[11px] text-slate-400 text-center">
                         El costo de envío y la forma de pago los coordinamos por WhatsApp.
                     </p>
-
-                    <div class="text-center pt-1">
-                        <button onclick="clearCart()" class="text-xs text-stone-400 hover:text-red-300 underline">
-                            Vaciar carrito
-                        </button>
-                    </div>
                 </div>
 
             </div>
@@ -660,700 +510,485 @@
 
     </div>
 
+    <!-- SCRIPT DE FUNCIONALIDAD -->
     <script>
-        // INITIAL PRODUCTS DATA WITH MULTIPLE IMAGES CAPABILITY
-        const initialProducts = [
+        // CONFIGURACIÓN GLOBAL
+        const PHONE_NUMBER = "51977333415"; // NÚMERO CORREGIDO DE WHATSAPP
+
+        // PRODUCTOS DE DEMO INICIALES (HASTA 4 IMÁGENES CADA UNO)
+        const INITIAL_PRODUCTS = [
             {
-                id: '1',
-                name: 'Porta huevos acrílico',
-                price: 21.00,
-                category: 'Cocina',
-                images: [],
-                emoji: '🥚',
-                description: 'Organizador transparente resistente y apilable para cocina. Mantén tus huevos protegidos y ordenados.',
-                ordersCount: 14
+                id: "1",
+                title: "Lámpara Humidificadora Volcán LED",
+                price: 45.00,
+                category: "Hogar",
+                description: "Humidificador ultrasónico con efecto de llama y medusa LED. Súper silencioso, ideal para dormitorios y ambientes relajantes.",
+                images: [
+                    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=600&q=80"
+                ]
             },
             {
-                id: '2',
-                name: 'Caballito saltarín',
-                price: 38.00,
-                category: 'Niños',
-                images: [],
-                emoji: '🐴',
-                description: 'Saltarín inflable super resistente para la diversión de los niños. Material grueso y seguro.',
-                ordersCount: 22
+                id: "2",
+                title: "Lonchera Térmica Acero Inoxidable",
+                price: 35.00,
+                category: "Cocina",
+                description: "Lonchera hermética de 3 compartimentos con aislamiento térmico para mantener la Comida caliente.",
+                images: [
+                    "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80"
+                ]
             },
             {
-                id: '3',
-                name: 'Zapatera de madera',
-                price: 95.00,
-                category: 'Hogar',
-                images: [],
-                emoji: '👟',
-                description: 'Ordena tus zapatos y gana espacio de manera elegante en casa. Fácil ensamblaje.',
-                ordersCount: 35
+                id: "3",
+                title: "Organizador de Acrílico Giratorio 360",
+                price: 28.00,
+                category: "Organización",
+                description: "Organizador multiusos ideal para cosméticos, cremas y cuidado personal. Giratorio y fácil de limpiar.",
+                images: [
+                    "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+                ]
             },
             {
-                id: '4',
-                name: 'Mosquitero de 2 plazas',
-                price: 26.00,
-                category: 'Hogar',
-                images: [],
-                emoji: '🛏️',
-                description: 'Protege tu cama de zancudos e insectos para descansar tranquilo toda la noche.',
-                ordersCount: 18
-            },
-            {
-                id: '5',
-                name: 'Foco cámara 360°',
-                price: 43.00,
-                category: 'Tecnología',
-                images: [],
-                emoji: '📹',
-                description: 'Cámara de seguridad panorámica con visión nocturna, audio bidireccional y conexión WiFi fácil.',
-                ordersCount: 29
+                id: "4",
+                title: "Miniparlante Bluetooth Resistente al Agua",
+                price: 32.00,
+                category: "Tecnología",
+                description: "Parlante portatil compacto con ventosa para ducha. Batería de larga duración y sonido HD.",
+                images: [
+                    "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80"
+                ]
             }
         ];
 
-        const categories = ["Todos", "Hogar", "Cocina", "Niños", "Belleza y salud", "Mascotas", "Tecnología", "Arte y oficina"];
+        // ESTADOS DE LA APP
+        let products = JSON.parse(localStorage.getItem('jm_products')) || INITIAL_PRODUCTS;
+        let cart = JSON.parse(localStorage.getItem('jm_cart')) || [];
+        let activeCategory = 'Todos';
+        let currentSelectedProduct = null;
+        let chart1 = null;
+        let chart2 = null;
 
-        // STATE VARIABLES
-        let products = [];
-        let cart = [];
-        let activeCategory = "Todos";
-        let searchQuery = "";
-        let isAdminLoggedIn = false;
-        const WHATSAPP_PHONE = "51900000000";
-
-        // Active Carousel State
-        let currentDetailProduct = null;
-        let activeCarouselIndex = 0;
-
-        // Chart Instances
-        let topProductsChartInstance = null;
-        let categoryPieChartInstance = null;
-
-        window.onload = function() {
-            loadProductsFromStorage();
-            renderCategoryPills();
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
+            renderCategoryFilters();
             updateCartUI();
-        };
 
-        function enterStore() {
-            const splash = document.getElementById('splashScreen');
-            splash.classList.add('opacity-0');
+            // Simulación de pantalla de carga rápida
             setTimeout(() => {
-                splash.classList.add('hidden');
-                document.getElementById('mainApp').classList.remove('hidden');
-            }, 500);
+                const splash = document.getElementById('splashScreen');
+                const app = document.getElementById('app');
+                splash.classList.add('opacity-0');
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    app.classList.remove('opacity-0');
+                }, 700);
+            }, 800);
+
+            // Búsqueda en vivo
+            document.getElementById('searchInput').addEventListener('input', (e) => filterProducts(e.target.value));
+            document.getElementById('searchInputMobile').addEventListener('input', (e) => filterProducts(e.target.value));
+
+            lucide.createIcons();
+        });
+
+        // RECTIFICAR Y GUARDAR
+        function saveProducts() {
+            localStorage.setItem('jm_products', JSON.stringify(products));
         }
 
-        function loadProductsFromStorage() {
-            const saved = localStorage.getItem('importaciones_jm_products_v2');
-            if (saved) {
-                try {
-                    products = JSON.parse(saved);
-                } catch(e) {
-                    products = [...initialProducts];
-                }
-            } else {
-                products = [...initialProducts];
-                saveProductsToStorage();
-            }
+        function saveCart() {
+            localStorage.setItem('jm_cart', JSON.stringify(cart));
+            updateCartUI();
         }
 
-        function saveProductsToStorage() {
-            localStorage.setItem('importaciones_jm_products_v2', JSON.stringify(products));
-        }
-
-        function toggleAdminView() {
-            if (isAdminLoggedIn) {
-                showAdminView();
-            } else {
-                // Ensure auth form fields are completely empty on open
-                document.getElementById('adminUser').value = '';
-                document.getElementById('adminPass').value = '';
-                document.getElementById('loginError').classList.add('hidden');
-                document.getElementById('adminAuthModal').classList.remove('hidden');
-            }
-        }
-
-        function closeAdminAuthModal() {
-            document.getElementById('adminAuthModal').classList.add('hidden');
-            document.getElementById('adminUser').value = '';
-            document.getElementById('adminPass').value = '';
-            document.getElementById('loginError').classList.add('hidden');
-        }
-
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const u = document.getElementById('adminUser').value.trim();
-            const p = document.getElementById('adminPass').value.trim();
-
-            // Credentials: Merly0909 / 090909
-            if (u === 'Merly0909' && p === '090909') {
-                isAdminLoggedIn = true;
-                closeAdminAuthModal();
-                showAdminView();
-            } else {
-                document.getElementById('loginError').classList.remove('hidden');
-            }
-        }
-
-        function logoutAdmin() {
-            isAdminLoggedIn = false;
-            showPublicView();
-        }
-
-        function showAdminView() {
-            document.getElementById('publicView').classList.add('hidden');
-            document.getElementById('adminView').classList.remove('hidden');
-            document.getElementById('viewToggleLabel').innerText = 'Vista Cliente';
-            renderAdminList();
-            renderAnalyticsCharts();
-        }
-
-        function showPublicView() {
-            document.getElementById('publicView').classList.remove('hidden');
-            document.getElementById('adminView').classList.add('hidden');
-            document.getElementById('viewToggleLabel').innerText = 'Panel Admin';
-            renderProducts();
-        }
-
-        function renderCategoryPills() {
-            const container = document.getElementById('categoryPills');
-            container.innerHTML = categories.map(cat => {
-                const isActive = cat === activeCategory;
-                const activeClass = isActive 
-                    ? 'bg-brand-gold text-white shadow-sm' 
-                    : 'glass-input text-brand-textMuted hover:bg-white';
-                return `<button onclick="setCategory('${cat}')" class="px-4 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition whitespace-nowrap ${activeClass}">
-                    ${cat}
-                </button>`;
-            }).join('');
-        }
-
-        function setCategory(cat) {
-            activeCategory = cat;
-            renderCategoryPills();
-            renderProducts();
-        }
-
-        function filterProducts() {
-            searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            renderProducts();
-        }
-
-        function renderProducts() {
+        // MOSTRAR PRODUCTOS EN EL CATÁLOGO
+        function renderProducts(filtered = products) {
             const grid = document.getElementById('productsGrid');
-            const filtered = products.filter(p => {
-                const matchesCat = activeCategory === "Todos" || p.category === activeCategory;
-                const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery);
-                return matchesCat && matchesSearch;
-            });
+            const noRes = document.getElementById('noResults');
+
+            grid.innerHTML = '';
 
             if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-12 text-center text-brand-textMuted glass-panel rounded-3xl">
-                        <i class="fa-solid fa-box-open text-4xl mb-2 text-brand-goldSoft"></i>
-                        <p class="font-semibold">No se encontraron productos en esta categoría.</p>
-                    </div>
-                `;
+                noRes.classList.remove('hidden');
                 return;
+            } else {
+                noRes.classList.add('hidden');
             }
 
-            grid.innerHTML = filtered.map(p => {
-                const mainImg = (p.images && p.images.length > 0) ? p.images[0] : null;
-                const imgCount = (p.images && p.images.length > 0) ? p.images.length : 0;
-
-                return `
-                    <div class="glass-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between relative group cursor-pointer" onclick="openProductDetailModal('${p.id}')">
-                        <div>
-                            <div class="w-full h-48 rounded-2xl bg-gradient-to-br from-amber-100/60 to-amber-200/40 flex items-center justify-center text-6xl mb-4 relative overflow-hidden border border-white/80">
-                                ${mainImg ? `<img src="${mainImg}" alt="${p.name}" class="w-full h-full object-cover">` : `<span>${p.emoji || '📦'}</span>`}
-                                
-                                <div class="absolute bottom-2 left-2 bg-amber-300/90 text-amber-950 font-bold text-xs px-2.5 py-1 rounded-lg shadow-sm border border-amber-200 backdrop-blur-sm">
-                                    S/ ${Number(p.price).toFixed(2)}
-                                </div>
-
-                                ${imgCount > 1 ? `
-                                    <div class="absolute top-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm flex items-center gap-1">
-                                        <i class="fa-solid fa-images"></i>
-                                        <span>${imgCount} fotos</span>
-                                    </div>
-                                ` : ''}
-                            </div>
-
-                            <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider">${p.category}</span>
-                            <h4 class="font-serif font-bold text-lg text-brand-textPrimary mt-0.5 line-clamp-1">${p.name}</h4>
-                            <p class="text-xs text-brand-textMuted mt-1 line-clamp-2 leading-relaxed">${p.description}</p>
+            filtered.forEach(p => {
+                const mainImg = p.images && p.images.length > 0 ? p.images[0] : 'https://via.placeholder.com/400';
+                
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl p-3 sm:p-4 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer";
+                
+                card.innerHTML = `
+                    <div onclick="openProductDetailModal('${p.id}')">
+                        <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-100 mb-3">
+                            <img src="${mainImg}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            ${p.images.length > 1 ? `<span class="absolute bottom-2 right-2 bg-slate-900/70 text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1"><i data-lucide="layers" class="w-3 h-3"></i> ${p.images.length}</span>` : ''}
+                            <span class="absolute top-2 left-2 bg-white/90 backdrop-blur-md text-slate-800 text-[10px] font-extrabold px-2.5 py-1 rounded-lg uppercase shadow-sm">
+                                ${p.category}
+                            </span>
                         </div>
-
-                        <div class="flex items-center gap-2 mt-4" onclick="event.stopPropagation()">
-                            <button onclick="addToCart('${p.id}')" class="btn-gold flex-1 py-2.5 rounded-xl font-semibold text-xs flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-plus"></i>
-                                <span>Agregar</span>
-                            </button>
-                            <button onclick="openProductDetailModal('${p.id}')" class="px-3 py-2.5 rounded-xl glass-input text-brand-gold text-xs font-semibold hover:bg-white" title="Ver fotos y detalle">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </div>
+                        <h3 class="font-bold text-slate-800 text-xs sm:text-sm line-clamp-2 mb-1 group-hover:text-brand-600 transition-colors">${p.title}</h3>
+                        <p class="text-base sm:text-lg font-extrabold text-brand-600 mb-3">S/ ${parseFloat(p.price).toFixed(2)}</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-50">
+                        <button onclick="addToCart('${p.id}')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 p-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Agregar</span>
+                        </button>
+                        <button onclick="buyNowWsp('${p.id}')" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 p-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1 transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Pedir</span>
+                        </button>
                     </div>
                 `;
-            }).join('');
+                grid.appendChild(card);
+            });
+
+            lucide.createIcons();
         }
 
-        // CAROUSEL & PRODUCT DETAIL MODAL FUNCTIONS
-        function openProductDetailModal(productId) {
-            const prod = products.find(p => p.id === productId);
-            if (!prod) return;
+        // CATEGORÍAS
+        function renderCategoryFilters() {
+            const container = document.getElementById('categoryFilters');
+            const categories = ['Todos', ...new Set(products.map(p => p.category))];
 
-            currentDetailProduct = prod;
-            activeCarouselIndex = 0;
+            container.innerHTML = '';
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${cat === activeCategory ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`;
+                btn.innerText = cat;
+                btn.onclick = () => {
+                    activeCategory = cat;
+                    renderCategoryFilters();
+                    filterProducts();
+                };
+                container.appendChild(btn);
+            });
+        }
 
-            document.getElementById('detailTitle').innerText = prod.name;
-            document.getElementById('detailCat').innerText = prod.category;
-            document.getElementById('detailPrice').innerText = `S/ ${Number(prod.price).toFixed(2)}`;
-            document.getElementById('detailDesc').innerText = prod.description;
+        // FILTRADO
+        function filterProducts(searchTerm = '') {
+            const query = searchTerm.toLowerCase() || document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => {
+                const matchesCat = activeCategory === 'Todos' || p.category === activeCategory;
+                const matchesQuery = p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query);
+                return matchesCat && matchesQuery;
+            });
+            renderProducts(filtered);
+        }
 
-            // Setup buttons
-            document.getElementById('detailAddToCartBtn').onclick = function() {
-                addToCart(prod.id);
+        // MODAL DE DETALLES
+        function openProductDetailModal(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+            currentSelectedProduct = p;
+
+            document.getElementById('detailTitle').innerText = p.title;
+            document.getElementById('detailPrice').innerText = `S/ ${parseFloat(p.price).toFixed(2)}`;
+            document.getElementById('detailCategory').innerText = p.category;
+            document.getElementById('detailDesc').innerText = p.description || 'Sin descripción detallada.';
+
+            // Renderizar Imágenes / Miniaturas
+            const mainImg = document.getElementById('detailMainImage');
+            const thumbsContainer = document.getElementById('detailThumbnails');
+            thumbsContainer.innerHTML = '';
+
+            const imgs = p.images && p.images.length > 0 ? p.images : ['https://via.placeholder.com/400'];
+            mainImg.src = imgs[0];
+
+            imgs.forEach((imgUrl, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `aspect-square rounded-lg overflow-hidden bg-slate-100 border-2 cursor-pointer transition-all ${index === 0 ? 'border-brand-500' : 'border-transparent'}`;
+                thumb.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+                thumb.onclick = () => {
+                    mainImg.src = imgUrl;
+                    Array.from(thumbsContainer.children).forEach(c => c.classList.replace('border-brand-500', 'border-transparent'));
+                    thumb.classList.replace('border-transparent', 'border-brand-500');
+                };
+                thumbsContainer.appendChild(thumb);
+            });
+
+            // Configurar Botones
+            document.getElementById('detailAddToCartBtn').onclick = () => {
+                addToCart(p.id);
                 closeProductDetailModal();
             };
+            document.getElementById('detailBuyWspBtn').onclick = () => buyNowWsp(p.id);
 
-            document.getElementById('detailOrderWhatsAppBtn').onclick = function() {
-                const msg = `Hola Importaciones JM ✨, Deseo realizar una consulta por el producto *${prod.name}* (S/ ${Number(prod.price).toFixed(2)})! Quedo atent@ gracias😊✨`;
-                window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
-            };
-
-            renderCarouselDisplay();
             document.getElementById('productDetailModal').classList.remove('hidden');
+            lucide.createIcons();
         }
 
         function closeProductDetailModal() {
             document.getElementById('productDetailModal').classList.add('hidden');
-            currentDetailProduct = null;
         }
 
-        function renderCarouselDisplay() {
-            if (!currentDetailProduct) return;
-
-            const displayContainer = document.getElementById('carouselMainDisplay');
-            const thumbnailsContainer = document.getElementById('carouselThumbnails');
-            const images = currentDetailProduct.images || [];
-
-            if (images.length > 0) {
-                // Ensure index is valid
-                if (activeCarouselIndex >= images.length) activeCarouselIndex = 0;
-                if (activeCarouselIndex < 0) activeCarouselIndex = images.length - 1;
-
-                displayContainer.innerHTML = `<img src="${images[activeCarouselIndex]}" class="w-full h-full object-cover">`;
-
-                // Render thumbnails if more than 1 photo
-                if (images.length > 1) {
-                    thumbnailsContainer.innerHTML = images.map((img, idx) => `
-                        <button onclick="setCarouselIndex(${idx})" class="w-12 h-12 rounded-xl overflow-hidden border-2 transition ${idx === activeCarouselIndex ? 'border-brand-gold scale-105 shadow-md' : 'border-stone-200 opacity-60 hover:opacity-100'}">
-                            <img src="${img}" class="w-full h-full object-cover">
-                        </button>
-                    `).join('');
-                    document.getElementById('carouselPrevBtn').classList.remove('hidden');
-                    document.getElementById('carouselNextBtn').classList.remove('hidden');
-                } else {
-                    thumbnailsContainer.innerHTML = '';
-                    document.getElementById('carouselPrevBtn').classList.add('hidden');
-                    document.getElementById('carouselNextBtn').classList.add('hidden');
-                }
-            } else {
-                displayContainer.innerHTML = `<span>${currentDetailProduct.emoji || '📦'}</span>`;
-                thumbnailsContainer.innerHTML = '';
-                document.getElementById('carouselPrevBtn').classList.add('hidden');
-                document.getElementById('carouselNextBtn').classList.add('hidden');
-            }
-        }
-
-        function navigateCarousel(direction) {
-            if (!currentDetailProduct || !currentDetailProduct.images) return;
-            activeCarouselIndex += direction;
-            renderCarouselDisplay();
-        }
-
-        function setCarouselIndex(idx) {
-            activeCarouselIndex = idx;
-            renderCarouselDisplay();
-        }
-
-        // CART LOGIC
-        function addToCart(productId) {
-            const prod = products.find(p => p.id === productId);
-            if (!prod) return;
-
-            const existing = cart.find(item => item.id === productId);
+        // CARRITO
+        function addToCart(id) {
+            const existing = cart.find(item => item.id === id);
             if (existing) {
-                existing.quantity += 1;
+                existing.qty++;
             } else {
-                cart.push({ ...prod, quantity: 1 });
+                const p = products.find(prod => prod.id === id);
+                if (p) cart.push({ id: p.id, title: p.title, price: p.price, image: p.images[0], qty: 1 });
             }
-            updateCartUI();
+            saveCart();
         }
 
-        function updateQuantity(productId, delta) {
-            const item = cart.find(i => i.id === productId);
-            if (!item) return;
-
-            item.quantity += delta;
-            if (item.quantity <= 0) {
-                removeFromCart(productId);
-            } else {
-                updateCartUI();
+        function updateCartQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
             }
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(i => i.id !== productId);
-            updateCartUI();
-        }
-
-        function clearCart() {
-            cart = [];
-            updateCartUI();
+            saveCart();
         }
 
         function updateCartUI() {
-            const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
-            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-
-            document.getElementById('cartCountBadge').innerText = totalItems;
-
-            const floatingBar = document.getElementById('floatingCartBar');
-            if (totalItems > 0) {
-                floatingBar.classList.remove('hidden');
-                document.getElementById('floatingCartSummary').innerText = `Ver mi pedido (${totalItems} producto${totalItems > 1 ? 's' : ''})`;
-                document.getElementById('floatingCartTotal').innerText = `S/ ${totalPrice.toFixed(2)}`;
-            } else {
-                floatingBar.classList.add('hidden');
-            }
-
-            renderCartModalItems(totalPrice);
-        }
-
-        function renderCartModalItems(totalPrice) {
             const container = document.getElementById('cartItemsContainer');
-            document.getElementById('cartTotalDisplay').innerText = `S/ ${totalPrice.toFixed(2)}`;
+            const totalBadge = document.getElementById('cartCountBadge');
+            const totalText = document.getElementById('cartTotalPrice');
 
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-10 text-stone-400 space-y-2">
-                        <i class="fa-solid fa-basket-shopping text-3xl opacity-50"></i>
-                        <p class="text-sm">Tu carrito está vacío.</p>
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                count += item.qty;
+
+                const row = document.createElement('div');
+                row.className = "flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100";
+                row.innerHTML = `
+                    <img src="${item.image || 'https://via.placeholder.com/100'}" class="w-14 h-14 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-800 text-xs line-clamp-1">${item.title}</h4>
+                        <p class="text-brand-600 font-extrabold text-xs">S/ ${parseFloat(item.price).toFixed(2)}</p>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-slate-200">
+                        <button onclick="updateCartQty('${item.id}', -1)" class="text-slate-500 font-bold hover:text-brand-600">-</button>
+                        <span class="text-xs font-bold text-slate-800 w-4 text-center">${item.qty}</span>
+                        <button onclick="updateCartQty('${item.id}', 1)" class="text-slate-500 font-bold hover:text-brand-600">+</button>
                     </div>
                 `;
-                return;
-            }
+                container.appendChild(row);
+            });
 
-            container.innerHTML = cart.map(item => {
-                const itemImg = (item.images && item.images.length > 0) ? item.images[0] : null;
-                return `
-                    <div class="bg-stone-800/60 rounded-2xl p-3 border border-stone-700/60 flex items-center justify-between gap-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-xl bg-stone-700/50 flex items-center justify-center text-2xl overflow-hidden">
-                                ${itemImg ? `<img src="${itemImg}" class="w-full h-full object-cover">` : `<span>${item.emoji || '📦'}</span>`}
-                            </div>
-                            <div>
-                                <h5 class="font-serif font-bold text-sm text-stone-100">${item.name}</h5>
-                                <p class="text-xs text-stone-400">S/ ${Number(item.price).toFixed(2)} c/u</p>
-                                <div class="flex items-center gap-3 mt-1">
-                                    <div class="flex items-center border border-amber-500/40 rounded-lg bg-stone-900/80 px-2 py-0.5 text-xs text-amber-200">
-                                        <button onclick="updateQuantity('${item.id}', -1)" class="px-1 text-stone-400 hover:text-white">-</button>
-                                        <span class="px-2 font-bold">${item.quantity}</span>
-                                        <button onclick="updateQuantity('${item.id}', 1)" class="px-1 text-amber-400 hover:text-amber-200">+</button>
-                                    </div>
-                                    <button onclick="removeFromCart('${item.id}')" class="text-[11px] text-stone-400 hover:text-red-300 underline">Quitar</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right font-serif font-bold text-sm text-amber-200">
-                            S/ ${(item.price * item.quantity).toFixed(2)}
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            totalBadge.innerText = count;
+            totalText.innerText = `S/ ${total.toFixed(2)}`;
         }
 
         function toggleCartModal() {
             document.getElementById('cartModal').classList.toggle('hidden');
         }
 
-        // WHATSAPP INTEGRATION MESSAGES (EXACT SPECIFICATIONS)
-        function sendOrderWhatsApp() {
+        // WHATSAPP INTEGRACIÓN
+        function openWhatsAppGeneral() {
+            const text = encodeURIComponent("¡Hola Importaciones JHOSMEL! Quisiera hacer una consulta sobre su catálogo de productos.");
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${text}`, '_blank');
+        }
+
+        function buyNowWsp(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+            const text = encodeURIComponent(`Hola Importaciones JHOSMEL, deseo realizar el pedido del siguiente producto:\n\n📌 *${p.title}*\n💰 Precio: S/ ${parseFloat(p.price).toFixed(2)}\n\n¿Tienen stock disponible?`);
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${text}`, '_blank');
+        }
+
+        function sendCartToWhatsApp() {
             if (cart.length === 0) {
-                alert('El carrito está vacío. Agrega productos para enviar tu pedido.');
+                alert("Tu carrito está vacío.");
                 return;
             }
 
-            const name = document.getElementById('clientName').value.trim() || "No especificado";
-            const address = document.getElementById('clientAddress').value.trim() || "No especificado";
-            const notes = document.getElementById('clientNotes').value.trim() || "Sin notas";
-            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-
-            let text = `*¡NUEVO PEDIDO - IMPORTACIONES JM!* 📦\n`;
-            text += `👤 *Cliente:* ${name}\n`;
-            text += `📍 *Dirección:* ${address}\n`;
-            text += `📝 *Nota:* ${notes}\n\n`;
-            text += `🛒 *Detalle del Pedido:*\n`;
+            let msg = "¡Hola Importaciones JHOSMEL! Quisiera confirmar el pedido de mi carrito:\n\n";
+            let total = 0;
 
             cart.forEach((item, index) => {
-                text += `${index + 1}. ${item.name} x${item.quantity} - S/ ${(item.price * item.quantity).toFixed(2)}\n`;
-                const prod = products.find(p => p.id === item.id);
-                if (prod) {
-                    prod.ordersCount = (prod.ordersCount || 0) + item.quantity;
-                }
+                const sub = item.price * item.qty;
+                total += sub;
+                msg += `${index + 1}. *${item.title}* (x${item.qty}) - S/ ${sub.toFixed(2)}\n`;
             });
 
-            saveProductsToStorage();
+            msg += `\n💵 *Total a Pagar:* S/ ${total.toFixed(2)}`;
+            msg += `\n\nQuedo a la espera para indicarles la dirección de envío y método de pago.`;
 
-            text += `\n💰 *Total:* S/ ${totalPrice.toFixed(2)}\n\n`;
-            text += `Quedo a la espera para coordinar el envío y pago. ¡Gracias!`;
-
-            const encoded = encodeURIComponent(text);
-            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, '_blank');
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function sendDirectConsultationWhatsApp() {
-            const consultationMsg = `Hola Importaciones JM ✨, Deseo realizar una consulta por un producto! Quedo atent@ gracias😊✨`;
-            const encoded = encodeURIComponent(consultationMsg);
-            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, '_blank');
+        // PANEL ADMINISTRADOR
+        function openAdminModal() {
+            document.getElementById('adminAuthModal').classList.remove('hidden');
         }
 
-        function openWelcomeWhatsAppChat() {
-            const welcomeMsg = `Hola, bienvenid@!✨ Gracias por contactarte con 'Importaciones JM' 📦 Somos importadores directos y trabajamos con productos en tendencia 🔥 ✨Coméntame: ¿Qué producto te intereso?`;
-            const encoded = encodeURIComponent(welcomeMsg);
-            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, '_blank');
+        function closeAdminAuthModal() {
+            document.getElementById('adminAuthModal').classList.add('hidden');
         }
 
-        // MULTIPLE IMAGES UPLOAD (UP TO 4 SLOTS)
-        function previewImageFile(event, index) {
-            const file = event.target.files[0];
-            if (file) {
+        function verifyAdminPassword() {
+            const pwd = document.getElementById('adminPasswordInput').value;
+            if (pwd === 'admin' || pwd === '1234') { // Contraseña por defecto
+                closeAdminAuthModal();
+                document.getElementById('storeView').classList.add('hidden');
+                document.getElementById('adminView').classList.remove('hidden');
+                renderAdminTable();
+                initCharts();
+            } else {
+                alert("Contraseña incorrecta. Intente con 'admin'");
+            }
+        }
+
+        function closeAdminView() {
+            document.getElementById('adminView').classList.add('hidden');
+            document.getElementById('storeView').classList.remove('hidden');
+        }
+
+        // AGREGAR PRODUCTO NUEVO (SOPORTA HASTA 4 IMÁGENES POR BASE64)
+        let uploadedBase64Images = [];
+
+        function previewImages(e) {
+            const files = Array.from(e.target.files).slice(0, 4); // Límite de 4
+            const container = document.getElementById('imagePreviewsContainer');
+            container.innerHTML = '';
+            uploadedBase64Images = [];
+
+            files.forEach(file => {
                 const reader = new FileReader();
-                reader.onload = function(e) {
-                    const base64 = e.target.result;
-                    document.getElementById(`prodImageBase64_${index}`).value = base64;
-                    document.getElementById(`previewImg_${index}`).src = base64;
-                    document.getElementById(`imgPreviewBox_${index}`).classList.remove('hidden');
-                };
+                reader.onload = function(evt) {
+                    uploadedBase64Images.push(evt.target.result);
+                    
+                    const box = document.createElement('div');
+                    box.className = "aspect-square rounded-lg overflow-hidden border border-slate-200 bg-slate-50";
+                    box.innerHTML = `<img src="${evt.target.result}" class="w-full h-full object-cover">`;
+                    container.appendChild(box);
+                }
                 reader.readAsDataURL(file);
-            }
-        }
-
-        function clearImagePreview(index) {
-            document.getElementById(`prodImageFile${index}`).value = '';
-            document.getElementById(`prodImageBase64_${index}`).value = '';
-            document.getElementById(`previewImg_${index}`).src = '';
-            document.getElementById(`imgPreviewBox_${index}`).classList.add('hidden');
-        }
-
-        function renderAdminList() {
-            const listContainer = document.getElementById('adminProductList');
-            document.getElementById('adminProdCount').innerText = `${products.length} productos`;
-
-            if (products.length === 0) {
-                listContainer.innerHTML = `<p class="text-sm text-brand-textMuted text-center py-6">No hay productos registrados.</p>`;
-                return;
-            }
-
-            listContainer.innerHTML = products.map(p => {
-                const firstImg = (p.images && p.images.length > 0) ? p.images[0] : null;
-                const photoCount = (p.images && p.images.length > 0) ? p.images.length : 0;
-
-                return `
-                    <div class="glass-panel rounded-2xl p-3.5 flex items-center justify-between gap-4 border border-white/80">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 rounded-xl bg-amber-100/60 flex items-center justify-center text-2xl border border-amber-200 overflow-hidden relative">
-                                ${firstImg ? `<img src="${firstImg}" class="w-full h-full object-cover">` : `<span>${p.emoji || '📦'}</span>`}
-                            </div>
-                            <div>
-                                <span class="text-[10px] font-bold text-brand-gold uppercase">${p.category} • ${photoCount} foto(s)</span>
-                                <h5 class="font-serif font-bold text-sm text-brand-textPrimary">${p.name}</h5>
-                                <p class="text-xs font-semibold text-brand-gold">S/ ${Number(p.price).toFixed(2)}</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-2">
-                            <button onclick="editProduct('${p.id}')" class="p-2 rounded-xl glass-input text-brand-gold hover:bg-white text-xs" title="Editar">
-                                <i class="fa-solid fa-pen"></i>
-                            </button>
-                            <button onclick="deleteProduct('${p.id}')" class="p-2 rounded-xl glass-input text-red-500 hover:bg-white text-xs" title="Eliminar">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            });
         }
 
         function handleProductSubmit(e) {
             e.preventDefault();
-            const id = document.getElementById('editProductId').value;
-            const name = document.getElementById('prodName').value.trim();
-            const price = parseFloat(document.getElementById('prodPrice').value);
-            const category = document.getElementById('prodCategory').value;
-            const emoji = document.getElementById('prodEmoji').value.trim() || '📦';
-            const description = document.getElementById('prodDesc').value.trim();
+            const title = document.getElementById('pTitle').value;
+            const price = parseFloat(document.getElementById('pPrice').value);
+            const category = document.getElementById('pCategory').value;
+            const description = document.getElementById('pDesc').value;
 
-            // Collect up to 4 images
-            const images = [];
-            for (let i = 0; i < 4; i++) {
-                const val = document.getElementById(`prodImageBase64_${i}`).value;
-                if (val) images.push(val);
-            }
+            const imgs = uploadedBase64Images.length > 0 ? uploadedBase64Images : ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"];
 
-            if (id) {
-                const index = products.findIndex(p => p.id === id);
-                if (index !== -1) {
-                    products[index] = { ...products[index], name, price, category, emoji, description, images };
-                }
-            } else {
-                const newProd = {
-                    id: Date.now().toString(),
-                    name,
-                    price,
-                    category,
-                    emoji,
-                    description,
-                    images,
-                    ordersCount: Math.floor(Math.random() * 10) + 1
-                };
-                products.unshift(newProd);
-            }
+            const newProduct = {
+                id: Date.now().toString(),
+                title,
+                price,
+                category,
+                description,
+                images: imgs
+            };
 
-            saveProductsToStorage();
-            resetAdminForm();
-            renderAdminList();
-            renderAnalyticsCharts();
+            products.unshift(newProduct);
+            saveProducts();
             renderProducts();
-        }
+            renderCategoryFilters();
+            renderAdminTable();
+            updateCharts();
 
-        function editProduct(id) {
-            const prod = products.find(p => p.id === id);
-            if (!prod) return;
+            // Limpiar
+            document.getElementById('addProductForm').reset();
+            document.getElementById('imagePreviewsContainer').innerHTML = '';
+            uploadedBase64Images = [];
 
-            document.getElementById('editProductId').value = prod.id;
-            document.getElementById('prodName').value = prod.name;
-            document.getElementById('prodPrice').value = prod.price;
-            document.getElementById('prodCategory').value = prod.category;
-            document.getElementById('prodEmoji').value = prod.emoji || '';
-            document.getElementById('prodDesc').value = prod.description;
-
-            // Load images into slots
-            const images = prod.images || [];
-            for (let i = 0; i < 4; i++) {
-                if (images[i]) {
-                    document.getElementById(`prodImageBase64_${i}`).value = images[i];
-                    document.getElementById(`previewImg_${i}`).src = images[i];
-                    document.getElementById(`imgPreviewBox_${i}`).classList.remove('hidden');
-                } else {
-                    clearImagePreview(i);
-                }
-            }
-
-            document.getElementById('adminFormTitle').innerHTML = `<i class="fa-solid fa-pen text-brand-gold"></i> <span>Editar Producto</span>`;
-            document.getElementById('formSubmitBtnText').innerText = 'Actualizar Producto';
+            alert("¡Producto agregado exitosamente!");
         }
 
         function deleteProduct(id) {
-            products = products.filter(p => p.id !== id);
-            saveProductsToStorage();
-            renderAdminList();
-            renderAnalyticsCharts();
-            renderProducts();
-        }
-
-        function resetAdminForm() {
-            document.getElementById('productForm').reset();
-            document.getElementById('editProductId').value = '';
-            for (let i = 0; i < 4; i++) {
-                clearImagePreview(i);
+            if (confirm("¿Estás seguro de eliminar este producto?")) {
+                products = products.filter(p => p.id !== id);
+                saveProducts();
+                renderProducts();
+                renderCategoryFilters();
+                renderAdminTable();
+                updateCharts();
             }
-            document.getElementById('adminFormTitle').innerHTML = `<i class="fa-solid fa-plus-circle text-brand-gold"></i> <span>Agregar Nuevo Producto</span>`;
-            document.getElementById('formSubmitBtnText').innerText = 'Guardar Producto';
         }
 
-        function renderAnalyticsCharts() {
-            document.getElementById('statTotalProducts').innerText = products.length;
+        function renderAdminTable() {
+            const tbody = document.getElementById('adminProductsTable');
+            const totalBadge = document.getElementById('adminTotalCount');
+            tbody.innerHTML = '';
 
-            const sortedByOrders = [...products].sort((a, b) => (b.ordersCount || 0) - (a.ordersCount || 0));
-            const topProd = sortedByOrders[0];
-            document.getElementById('statTopProduct').innerText = topProd ? topProd.name : "N/A";
+            totalBadge.innerText = `${products.length} productos`;
 
-            const estSales = products.reduce((acc, p) => acc + (p.price * (p.ordersCount || 1)), 0);
-            document.getElementById('statEstimatedSales').innerText = `S/ ${estSales.toFixed(2)}`;
+            products.forEach(p => {
+                const mainImg = p.images && p.images.length > 0 ? p.images[0] : 'https://via.placeholder.com/80';
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-3">
+                        <img src="${mainImg}" class="w-10 h-10 object-cover rounded-lg">
+                    </td>
+                    <td class="p-3 font-bold text-slate-800">${p.title}</td>
+                    <td class="p-3"><span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2 py-1 rounded-md">${p.category}</span></td>
+                    <td class="p-3 font-extrabold text-brand-600">S/ ${parseFloat(p.price).toFixed(2)}</td>
+                    <td class="p-3 text-right">
+                        <button onclick="deleteProduct('${p.id}')" class="p-2 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors" title="Eliminar">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
 
-            // Top Products Chart
-            const top5 = sortedByOrders.slice(0, 5);
-            const barLabels = top5.map(p => p.name);
-            const barData = top5.map(p => p.ordersCount || 0);
+            document.getElementById('metricTotalProducts').innerText = products.length;
+            lucide.createIcons();
+        }
 
-            const ctxBar = document.getElementById('topProductsChart').getContext('2d');
-            if (topProductsChartInstance) topProductsChartInstance.destroy();
+        // GRÁFICOS Y ANALÍTICA
+        function initCharts() {
+            if (chart1) chart1.destroy();
+            if (chart2) chart2.destroy();
 
-            topProductsChartInstance = new Chart(ctxBar, {
+            const ctx1 = document.getElementById('chartPopularity').getContext('2d');
+            const ctx2 = document.getElementById('chartCategories').getContext('2d');
+
+            chart1 = new Chart(ctx1, {
                 type: 'bar',
                 data: {
-                    labels: barLabels,
+                    labels: products.slice(0, 5).map(p => p.title.substring(0, 15) + '...'),
                     datasets: [{
-                        label: 'Pedidos aproximados',
-                        data: barData,
-                        backgroundColor: ['#9E7422', '#D4AF37', '#B88B2B', '#E5C158', '#7D7060'],
+                        label: 'Interacciones / Solicitudes',
+                        data: products.slice(0, 5).map(() => Math.floor(Math.random() * 50) + 10),
+                        backgroundColor: '#f43f5e',
                         borderRadius: 8
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-                        x: { grid: { display: false } }
-                    }
-                }
+                options: { responsive: true, maintainAspectRatio: false }
             });
 
-            // Category Pie Chart
             const catCounts = {};
-            products.forEach(p => {
-                catCounts[p.category] = (catCounts[p.category] || 0) + 1;
-            });
+            products.forEach(p => catCounts[p.category] = (catCounts[p.category] || 0) + 1);
 
-            const pieLabels = Object.keys(catCounts);
-            const pieData = Object.values(catCounts);
-
-            const ctxPie = document.getElementById('categoryPieChart').getContext('2d');
-            if (categoryPieChartInstance) categoryPieChartInstance.destroy();
-
-            categoryPieChartInstance = new Chart(ctxPie, {
+            chart2 = new Chart(ctx2, {
                 type: 'doughnut',
                 data: {
-                    labels: pieLabels,
+                    labels: Object.keys(catCounts),
                     datasets: [{
-                        data: pieData,
-                        backgroundColor: [
-                            '#9E7422', '#D4AF37', '#F3E5AB', '#7D7060', 
-                            '#E5C158', '#C0A060', '#A08040'
-                        ],
-                        borderWidth: 2,
-                        borderColor: '#ffffff'
+                        data: Object.values(catCounts),
+                        backgroundColor: ['#f43f5e', '#fb7185', '#fda4af', '#e11d48', '#9f1239']
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
-                    }
-                }
+                options: { responsive: true, maintainAspectRatio: false }
             });
+        }
+
+        function updateCharts() {
+            if (chart1 && chart2) {
+                initCharts();
+            }
         }
     </script>
 </body>
